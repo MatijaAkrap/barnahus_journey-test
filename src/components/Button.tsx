@@ -10,7 +10,7 @@ const Button = (props: IButton) => {
     <Html>
       <div className='container'>
         <button hidden={props.hideButton} onClick={props.handleOnClick}>
-          Start expirence
+          Start experience
         </button>
       </div>
     </Html>

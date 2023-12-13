@@ -18,6 +18,16 @@ const Scene = () => {
       const vibrationInterval = setInterval(() => {
         if ('vibrate' in navigator) {
           navigator.vibrate(500)
+        } else {
+          // Fallback for iOS using AudioToolbox
+          var audio = new AudioContext()
+          var oscillator = audio.createOscillator()
+          oscillator.type = 'square'
+          oscillator.connect(audio.destination)
+          oscillator.start()
+          setTimeout(function () {
+            oscillator.stop()
+          }, 500)
         }
       }, 4666.66650772)
 
